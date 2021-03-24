@@ -6,8 +6,24 @@ class CPU:
     """Main CPU class."""
 
     def __init__(self):
-        """Construct a new CPU."""
-        pass
+        """Construct a new CPU.
+        program count
+        ram
+        registers
+        def ram.read
+        ram.write
+        inspec
+        """
+
+        self.ram = [0]*256
+        self.prog_count = 0
+        self.registers = [0] * 8
+        
+        def self.ram_read:
+            
+
+        def self.ram_write:
+
 
     def load(self):
         """Load a program into memory."""
@@ -61,5 +77,9 @@ class CPU:
         print()
 
     def run(self):
-        """Run the CPU."""
+        """Run the CPU.
+        while loop, 
+        check conditional, 
+        close to copy and paste of what we did (may have to do self.pc etc.)
+        """
         pass
