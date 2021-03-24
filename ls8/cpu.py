@@ -19,10 +19,12 @@ class CPU:
         self.prog_count = 0
         self.registers = [0] * 8
         
-        def self.ram_read:
+    def ram_read(self, address):
+        return self.ram[address]
             
 
-        def self.ram_write:
+    def ram_write(self, value, address):
+        self.ram[address] = value
 
 
     def load(self):
