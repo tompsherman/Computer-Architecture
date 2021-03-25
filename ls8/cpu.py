@@ -2,6 +2,11 @@
 
 import sys
 
+# opcodes:
+HLT =  0b00000001
+LDR =  0b10000010
+PRN =  0b01000111
+
 class CPU:
     """Main CPU class."""
 
@@ -16,7 +21,7 @@ class CPU:
         """
 
         self.ram = [0]*256
-        self.prog_count = 0
+        self.pc = 0
         self.registers = [0] * 8
         
     def ram_read(self, address):
@@ -84,4 +89,30 @@ class CPU:
         check conditional, 
         close to copy and paste of what we did (may have to do self.pc etc.)
         """
-        pass
+        while True:
+            #FETCH
+            instruction = self.ram[self.pc]
+
+            #DECODE
+            if instruction == HLT:
+                #EXECUTE
+                break
+            #DECODE
+            elif instruction == LDI:
+                #EXECUTE
+                reg_index = self.ram[self.pc + 1]
+                num = self.ram[self.pc+2]
+                self.registers[reg_index] = num
+                self.pc += 3
+            #DECODE
+            elif instruction == PRN:
+                #EXECUTE
+                reg_index = self.ram[self.pc + 1]
+                num = self.registers[reg_index]
+                print(num)
+                self.pc += 2
+            #DECODE
+            else:
+                #EXECUTE
+                print("We got a big f#c%in problem, Morty!")
+        
